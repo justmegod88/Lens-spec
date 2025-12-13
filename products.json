@@ -1,0 +1,316 @@
+[
+  {
+    "id": 1,
+    "manufacturer": "아큐브",
+    "product_name_ko": "아큐브 오아시스 1-DAY",
+    "product_name_en": "ACUVUE OASYS 1-Day",
+    "tech_name": "HydraLuxe® Technology",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "senofilcon A",
+    "water_content_percent": 38,
+    "dk_t": 121,
+    "uv_block": true,
+    "bc_mm": [
+      8.5,
+      9.0
+    ],
+    "dia_mm": 14.3,
+    "power_range": "+0.50~+8.00 / -0.50~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D (edge corrected).",
+    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-1-day-hydraluxe/"
+  },
+  {
+    "id": 2,
+    "manufacturer": "아큐브",
+    "product_name_ko": "원데이 아큐브 모이스트",
+    "product_name_en": "1-DAY ACUVUE MOIST",
+    "tech_name": "LACREON® Technology",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "etafilcon A",
+    "water_content_percent": 58,
+    "dk_t": 25.5,
+    "uv_block": true,
+    "bc_mm": [
+      8.5,
+      9.0
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+0.50~+6.00 / -0.50~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D (edge corrected).",
+    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist/"
+  },
+  {
+    "id": 101,
+    "manufacturer": "쿠퍼비전",
+    "product_name_ko": "마이데이",
+    "product_name_en": "MyDay",
+    "tech_name": "Aquaform® Technology",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "stenfilcon A",
+    "water_content_percent": 54,
+    "dk_t": 100,
+    "uv_block": true,
+    "bc_mm": [
+      8.4
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+0.25~+8.00 / -0.25~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://coopervision.co.uk/practitioner/contact-lenses/myday"
+  },
+  {
+    "id": 102,
+    "manufacturer": "쿠퍼비전",
+    "product_name_ko": "클래리티 원데이",
+    "product_name_en": "clariti 1 day",
+    "tech_name": "WetLoc® Technology (SiHy)",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "somofilcon A",
+    "water_content_percent": 56,
+    "dk_t": 86,
+    "uv_block": true,
+    "bc_mm": [
+      8.6
+    ],
+    "dia_mm": 14.1,
+    "power_range": "+0.50~+8.00 / -0.50~-10.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://coopervision.com/practitioner/our-products/clariti-1-day-family/clariti-1-day"
+  },
+  {
+    "id": 103,
+    "manufacturer": "쿠퍼비전",
+    "product_name_ko": "바이오피니티",
+    "product_name_en": "Biofinity",
+    "tech_name": "Aquaform® Technology",
+    "category": [
+      "먼슬리",
+      "구면"
+    ],
+    "material": "comfilcon A",
+    "water_content_percent": 48,
+    "dk_t": 160,
+    "uv_block": false,
+    "bc_mm": [
+      8.6
+    ],
+    "dia_mm": 14.0,
+    "power_range": "+8.00~ -12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t commonly listed at -3.00D (varies by market).",
+    "source_url": "https://coopervision.com/practitioner/our-products/biofinity-family/biofinity-biofinity-xr"
+  },
+  {
+    "id": 104,
+    "manufacturer": "쿠퍼비전",
+    "product_name_ko": "바이오피니티 토릭",
+    "product_name_en": "Biofinity toric",
+    "tech_name": "Optimized Toric Lens Geometry™",
+    "category": [
+      "먼슬리",
+      "난시"
+    ],
+    "material": "comfilcon A",
+    "water_content_percent": 48,
+    "dk_t": 116,
+    "uv_block": false,
+    "bc_mm": [
+      8.7
+    ],
+    "dia_mm": 14.5,
+    "power_range": "+8.00~-10.00 (XR 별도)",
+    "cylinder_range": "-0.75, -1.25, -1.75, -2.25",
+    "axis_range": "10~180",
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://coopervision.com/practitioner/our-products/biofinity-family/biofinity-toric-biofinity-xr-toric"
+  },
+  {
+    "id": 201,
+    "manufacturer": "바슈롬",
+    "product_name_ko": "바이오트루 원데이",
+    "product_name_en": "Biotrue ONEday",
+    "tech_name": "HyperGel™",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "nesofilcon A",
+    "water_content_percent": 78,
+    "dk_t": 42,
+    "uv_block": null,
+    "bc_mm": [
+      8.6
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+6.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://www.biotrue.com/biotrueonedaylenses-ecp/parameters/"
+  },
+  {
+    "id": 202,
+    "manufacturer": "바슈롬",
+    "product_name_ko": "바슈롬 울트라",
+    "product_name_en": "Bausch + Lomb ULTRA",
+    "tech_name": "MoistureSeal® technology",
+    "category": [
+      "먼슬리",
+      "구면"
+    ],
+    "material": "samfilcon A",
+    "water_content_percent": 46,
+    "dk_t": 163,
+    "uv_block": null,
+    "bc_mm": [
+      8.5
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+6.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://ecp.bauschcontactlenses.com/products/ultra-monthly/"
+  },
+  {
+    "id": 203,
+    "manufacturer": "바슈롬",
+    "product_name_ko": "퓨어비전2",
+    "product_name_en": "PureVision2",
+    "tech_name": "High Definition™ Optics",
+    "category": [
+      "먼슬리",
+      "구면"
+    ],
+    "material": "balafilcon A",
+    "water_content_percent": 36,
+    "dk_t": 130,
+    "uv_block": false,
+    "bc_mm": [
+      8.6
+    ],
+    "dia_mm": 14.0,
+    "power_range": "+6.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Dk/t @ -3.00D.",
+    "source_url": "https://www.specsavers.com.au/contact-lenses/monthly-disposables/purevision-ii-hd-6-pack"
+  },
+  {
+    "id": 301,
+    "manufacturer": "알콘",
+    "product_name_ko": "데일리스 토탈1",
+    "product_name_en": "DAILIES TOTAL1",
+    "tech_name": "Water Gradient Technology",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "delefilcon A",
+    "water_content_percent": 33,
+    "dk_t": 156,
+    "uv_block": false,
+    "bc_mm": [
+      8.5
+    ],
+    "dia_mm": 14.1,
+    "power_range": "+6.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Core water content 33% (surface higher). Dk/t @ -3.00D.",
+    "source_url": "https://www.myalcon.com/professional/contact-lenses/daily/dailies-total1/"
+  },
+  {
+    "id": 302,
+    "manufacturer": "알콘",
+    "product_name_ko": "데일리스 아쿠아컴포트 플러스",
+    "product_name_en": "DAILIES AquaComfort Plus",
+    "tech_name": "Blink-Activated Moisture",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "nelfilcon A",
+    "water_content_percent": 69,
+    "dk_t": 26,
+    "uv_block": null,
+    "bc_mm": [
+      8.7
+    ],
+    "dia_mm": 14.0,
+    "power_range": "+8.00~-15.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Specs vary by market; common published values shown.",
+    "source_url": "https://www.visiondirect.co.uk/dailies-aquacomfort-plus"
+  },
+  {
+    "id": 303,
+    "manufacturer": "알콘",
+    "product_name_ko": "프리시전1",
+    "product_name_en": "PRECISION1",
+    "tech_name": "SMARTSURFACE® Technology",
+    "category": [
+      "원데이",
+      "구면"
+    ],
+    "material": "verofilcon A",
+    "water_content_percent": 51,
+    "dk_t": 100,
+    "uv_block": true,
+    "bc_mm": [
+      8.3
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+8.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Core water content 51% (surface >80%). Dk/t @ -3.00D.",
+    "source_url": "https://us.alconscience.com/sites/g/files/rbvwei1736/files/pdf/1906A195-US-DP1-19-E-1306_DP1-White-Paper_iPad.pdf"
+  },
+  {
+    "id": 304,
+    "manufacturer": "알콘",
+    "product_name_ko": "토탈30",
+    "product_name_en": "TOTAL30",
+    "tech_name": "Water Gradient + Celligent®",
+    "category": [
+      "먼슬리",
+      "구면"
+    ],
+    "material": "lehfilcon A",
+    "water_content_percent": 55,
+    "dk_t": 154,
+    "uv_block": true,
+    "bc_mm": [
+      8.4
+    ],
+    "dia_mm": 14.2,
+    "power_range": "+8.00~-12.00",
+    "cylinder_range": null,
+    "axis_range": null,
+    "notes": "Core water content 55% (surface near 100%). Dk/t @ -3.00D.",
+    "source_url": "https://us.alconscience.com/sites/g/files/rbvwei1736/files/2021-11/Total30%20Contact%20Lenses%20with%20Water%20Gradient%20and%20Celligent%20Technologies_0.pdf"
+  }
+]
