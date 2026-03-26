@@ -3,7 +3,6 @@ const $ = (id) => document.getElementById(id);
 
 function textOf(p) {
   const parts = [
-    p.manufacturer,
     p.product_name_ko,
     p.product_name_en,
     p.tech_name,
@@ -18,33 +17,56 @@ function textOf(p) {
   return parts.join(" ").toLowerCase();
 }
 
-function matchFilters(p, q, type) {
+function normalizePeriod(category) {
+  if (category === "원데이") return "원데이";
+  if (category === "2주") return "2주";
+  if (category === "먼슬리" || category === "한달용") return "한달용";
+  return category;
+}
+
+function hasPeriodCategory(categories, period) {
+  if (!period) return true;
+  const normalized = (categories || []).map(normalizePeriod);
+  return normalized.includes(period);
+}
+
+function hasTypeCategory(categories, type) {
+  if (!type) return true;
+  return (categories || []).includes(type);
+}
+
+function matchFilters(p, q, type, period) {
+  // 아큐브만 노출
   if (p.manufacturer !== "아큐브") return false;
 
-  if (type) {
-    const cats = p.category || [];
-    if (!cats.includes(type)) return false;
-  }
+  const categories = p.category || [];
+
+  if (!hasTypeCategory(categories, type)) return false;
+  if (!hasPeriodCategory(categories, period)) return false;
 
   if (!q) return true;
   return textOf(p).includes(q.toLowerCase());
 }
 
 function badgeHtml(p) {
-  return (p.category || []).map(c => `<span class="badge">${c}</span>`).join("");
+  return (p.category || []).map(c => {
+    const label = normalizePeriod(c);
+    return `<span class="badge">${label}</span>`;
+  }).join("");
 }
 
 function renderList() {
   const q = $("q").value.trim();
   const type = $("type").value;
+  const period = $("period").value;
 
   const list = $("list");
-  const filtered = PRODUCTS.filter(p => matchFilters(p, q, type));
+  const filtered = PRODUCTS.filter(p => matchFilters(p, q, type, period));
 
   $("count").textContent = `검색 결과: ${filtered.length}개`;
 
   if (filtered.length === 0) {
-    list.innerHTML = `<div class="empty">검색 결과가 없어요. 검색어를 바꾸거나 타입 필터를 해제해보세요.</div>`;
+    list.innerHTML = `<div class="empty">검색 결과가 없어요. 검색어를 바꾸거나 필터를 해제해보세요.</div>`;
     return;
   }
 
@@ -80,11 +102,11 @@ function showDetail(p) {
   if (!p) return;
 
   $("detail").classList.remove("hidden");
-  $("d-title").textContent = `${p.manufacturer} | ${p.product_name_ko}`;
+  $("d-title").textContent = p.product_name_ko;
   $("d-link").href = p.source_url || "#";
 
   const bc = (p.bc_mm || []).length ? p.bc_mm.join(", ") : "-";
-  const cats = (p.category || []).join(", ") || "-";
+  const cats = (p.category || []).map(normalizePeriod).join(", ") || "-";
 
   $("d-table").innerHTML =
     row("제품명(영문)", p.product_name_en) +
@@ -107,17 +129,23 @@ async function init() {
   const res = await fetch("products.json", { cache: "no-store" });
   PRODUCTS = await res.json();
 
-  ["q", "type"].forEach(id => $(id).addEventListener("input", renderList));
+  ["q", "type", "period"].forEach(id => {
+    $(id).addEventListener("input", renderList);
+    $(id).addEventListener("change", renderList);
+  });
 
   $("btnSearch").addEventListener("click", renderList);
 
   $("btnClear").addEventListener("click", () => {
     $("q").value = "";
     $("type").value = "";
+    $("period").value = "";
     renderList();
   });
 
-  $("d-close").addEventListener("click", () => $("detail").classList.add("hidden"));
+  $("d-close").addEventListener("click", () => {
+    $("detail").classList.add("hidden");
+  });
 
   renderList();
 }
