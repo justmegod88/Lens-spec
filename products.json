@@ -10,7 +10,7 @@
     "water_content_percent": 38,
     "dk_t": 121,
     "uv_block": true,
-    "bc_mm": [8.5, (9.0)],
+    "bc_mm": [8.5, 9.0,],
     "dia_mm": 14.3,
     "power_range": "Plano / -0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25) / +6.50~+8.00(0.50)",
     "cylinder_range": null,
