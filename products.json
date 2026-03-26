@@ -133,25 +133,6 @@
     "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-max-1-day-multifocal/"
   },
   {
-    "id": 8,
-    "manufacturer": "아큐브",
-    "product_name_ko": "아큐브 오아시스 MAX 1-DAY 멀티포컬 난시용",
-    "product_name_en": "ACUVUE OASYS MAX 1-Day MULTIFOCAL for ASTIGMATISM",
-    "tech_name": "TearStable™ / OptiBlue™ / PUPIL OPTIMIZED DESIGN / BLINK STABILIZED®",
-    "category": ["원데이", "난시", "멀티"],
-    "material": "senofilcon A",
-    "water_content_percent": 38,
-    "dk_t": 129,
-    "uv_block": true,
-    "bc_mm": [8.5],
-    "dia_mm": 14.3,
-    "power_range": "-9.00~+6.00(0.25)",
-    "cylinder_range": "1.00D (fits up to 1.75D)",
-    "axis_range": "10°, 20°, 70°, 80°, 90°, 100°, 110°, 160°, 170°, 180°",
-    "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-max-1-day-multifocal-for-astigmatism/"
-  },
-  {
     "id": 9,
     "manufacturer": "아큐브",
     "product_name_ko": "아큐브 오아시스 2주착용",
@@ -188,25 +169,6 @@
     "axis_range": "축 상세는 공식 페이지 참고",
     "notes": "2-week replacement",
     "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-2-week-astigmatism/"
-  },
-  {
-    "id": 11,
-    "manufacturer": "아큐브",
-    "product_name_ko": "아큐브 오아시스 2주착용 멀티포컬",
-    "product_name_en": "ACUVUE OASYS MULTIFOCAL",
-    "tech_name": "PUPIL OPTIMIZED DESIGN / HYDRACLEAR® PLUS",
-    "category": ["2주", "멀티"],
-    "material": "senofilcon A",
-    "water_content_percent": 38,
-    "dk_t": 147,
-    "uv_block": true,
-    "bc_mm": [8.4],
-    "dia_mm": 14.3,
-    "power_range": "-9.00~+6.00(0.25)",
-    "cylinder_range": null,
-    "axis_range": null,
-    "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-multifocal/"
   },
   {
     "id": 12,
