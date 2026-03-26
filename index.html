@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>아큐브 렌즈 스펙 검색</title>
+  <title>콘택트렌즈 제품 스펙 검색</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <h1>아큐브 렌즈 스펙 검색</h1>
-    <p class="sub">제품명 / 재질 / 타입 / 도수 범위 검색</p>
+    <h1>렌즈 스펙 검색</h1>
+    <p class="sub">제품명 / 재질 / 타입 검색</p>
 
     <div class="searchRow">
-      <input id="q" class="search" placeholder="예: 오아시스 / 모이스트 / 난시 / 멀티 / senofilcon" />
+      <input id="q" class="search" placeholder="예: 아큐브 / 오아시스 / 난시 / 멀티" />
       <button id="btnSearch" class="btnPrimary">확인</button>
       <button id="btnClear" class="btn">초기화</button>
     </div>
@@ -20,11 +20,17 @@
     <div class="filters">
       <select id="type">
         <option value="">타입(전체)</option>
-        <option>원데이</option>
-        <option>2주</option>
-        <option>구면</option>
-        <option>난시</option>
-        <option>멀티</option>
+        <option value="구면">구면</option>
+        <option value="난시">난시</option>
+        <option value="멀티">멀티</option>
+        <option value="컬러">컬러</option>
+      </select>
+
+      <select id="period">
+        <option value="">주기(전체)</option>
+        <option value="원데이">원데이</option>
+        <option value="2주">2주</option>
+        <option value="한달용">한달용</option>
       </select>
     </div>
 
