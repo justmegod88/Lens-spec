@@ -14,26 +14,22 @@ function textOf(p) {
     p.axis_range || "",
     p.notes || ""
   ];
-
   return parts.join(" ").toLowerCase();
 }
 
 function normalizePeriod(category) {
   if (category === "원데이") return "원데이";
   if (category === "2주") return "2주";
-  if (category === "먼슬리") return "한달용";
-  if (category === "한달용") return "한달용";
+  if (category === "먼슬리" || category === "한달용") return "한달용";
   return category;
 }
 
 function getCategories(p) {
-  if (!Array.isArray(p.category)) return [];
-  return p.category;
+  return Array.isArray(p.category) ? p.category : [];
 }
 
 function isAcuvue(p) {
-  const maker = (p.manufacturer || "").trim();
-  return maker.includes("아큐브");
+  return (p.manufacturer || "").includes("아큐브");
 }
 
 function hasTypeCategory(categories, type) {
@@ -43,8 +39,7 @@ function hasTypeCategory(categories, type) {
 
 function hasPeriodCategory(categories, period) {
   if (!period) return true;
-  const normalized = categories.map(normalizePeriod);
-  return normalized.includes(period);
+  return categories.map(normalizePeriod).includes(period);
 }
 
 function matchFilters(p, q, type, period) {
@@ -60,8 +55,7 @@ function matchFilters(p, q, type, period) {
 }
 
 function badgeHtml(p) {
-  const categories = getCategories(p);
-  return categories.map(c => {
+  return getCategories(p).map(c => {
     const label = normalizePeriod(c);
     return `<span class="badge">${label}</span>`;
   }).join("");
@@ -82,7 +76,7 @@ function renderList() {
   }
 
   if (filtered.length === 0) {
-    list.innerHTML = `<div class="empty">검색 결과가 없어요. 필터를 해제하거나 products.json 내용을 확인해보세요.</div>`;
+    list.innerHTML = `<div class="empty">검색 결과가 없어요.</div>`;
     return;
   }
 
@@ -147,25 +141,17 @@ async function init() {
   const list = $("list");
 
   try {
-    const res = await fetch("./products.json?ts=" + Date.now(), { cache: "no-store" });
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
+    const res = await fetch("products.json?ts=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     PRODUCTS = await res.json();
-
-    if (!Array.isArray(PRODUCTS)) {
-      throw new Error("products.json 형식이 배열이 아님");
-    }
-
+    if (!Array.isArray(PRODUCTS)) throw new Error("JSON 배열 아님");
   } catch (err) {
-    console.error(err);
+    console.error("products.json load error:", err);
     if (list) {
-      list.innerHTML = `<div class="empty">products.json을 불러오지 못했어요. 파일 경로 또는 JSON 형식을 확인해주세요.</div>`;
+      list.innerHTML = `<div class="empty">products.json을 불러오지 못했어요.</div>`;
     }
-    if ($("count")) {
-      $("count").textContent = "검색 결과: 0개";
-    }
+    if ($("count")) $("count").textContent = "검색 결과: 0개";
     return;
   }
 
