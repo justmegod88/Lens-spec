@@ -20,7 +20,8 @@ function textOf(p) {
 function normalizePeriod(category) {
   if (category === "원데이") return "원데이";
   if (category === "2주") return "2주";
-  if (category === "먼슬리" || category === "한달용") return "한달용";
+  if (category === "먼슬리") return "한달용";
+  if (category === "한달용") return "한달용";
   return category;
 }
 
@@ -39,7 +40,8 @@ function hasTypeCategory(categories, type) {
 
 function hasPeriodCategory(categories, period) {
   if (!period) return true;
-  return categories.map(normalizePeriod).includes(period);
+  const normalized = categories.map(normalizePeriod);
+  return normalized.includes(period);
 }
 
 function matchFilters(p, q, type, period) {
@@ -55,7 +57,7 @@ function matchFilters(p, q, type, period) {
 }
 
 function badgeHtml(p) {
-  return getCategories(p).map(c => {
+  return getCategories(p).map((c) => {
     const label = normalizePeriod(c);
     return `<span class="badge">${label}</span>`;
   }).join("");
@@ -105,8 +107,8 @@ function detailInlineHtml(p) {
 }
 
 function removeInlineDetails() {
-  document.querySelectorAll(".inline-detail-row").forEach(el => el.remove());
-  document.querySelectorAll(".card.open").forEach(el => el.classList.remove("open"));
+  document.querySelectorAll(".inline-detail-row").forEach((el) => el.remove());
+  document.querySelectorAll(".card.open").forEach((el) => el.classList.remove("open"));
 }
 
 function openInlineDetail(cardEl, product) {
@@ -136,6 +138,8 @@ function openInlineDetail(cardEl, product) {
       removeInlineDetails();
     });
   }
+
+  detailRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function renderList() {
@@ -146,7 +150,9 @@ function renderList() {
   const list = $("list");
   if (!list) return;
 
-  const filtered = PRODUCTS.filter(p => matchFilters(p, q, type, period));
+  removeInlineDetails();
+
+  const filtered = PRODUCTS.filter((p) => matchFilters(p, q, type, period));
 
   if ($("count")) {
     $("count").textContent = `검색 결과: ${filtered.length}개`;
@@ -165,10 +171,10 @@ function renderList() {
     </div>
   `).join("");
 
-  document.querySelectorAll(".card").forEach(el => {
+  document.querySelectorAll(".card").forEach((el) => {
     el.addEventListener("click", () => {
       const id = Number(el.dataset.id);
-      const product = PRODUCTS.find(x => Number(x.id) === id);
+      const product = PRODUCTS.find((x) => Number(x.id) === id);
       openInlineDetail(el, product);
     });
   });
@@ -188,11 +194,13 @@ async function init() {
     if (list) {
       list.innerHTML = `<div class="empty">products.json을 불러오지 못했어요.</div>`;
     }
-    if ($("count")) $("count").textContent = "검색 결과: 0개";
+    if ($("count")) {
+      $("count").textContent = "검색 결과: 0개";
+    }
     return;
   }
 
-  ["q", "type", "period"].forEach(id => {
+  ["q", "type", "period"].forEach((id) => {
     const el = $(id);
     if (!el) return;
     el.addEventListener("input", renderList);
@@ -208,11 +216,11 @@ async function init() {
     renderList();
   });
 
-  renderList();
-
   window.addEventListener("resize", () => {
     removeInlineDetails();
   });
+
+  renderList();
 }
 
 init();
