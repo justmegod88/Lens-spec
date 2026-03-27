@@ -184,7 +184,7 @@ async function init() {
   const list = $("list");
 
   try {
-    const res = await fetch("data/products.json?ts=" + Date.now(), { cache: "no-store" });
+    const res = await fetch("products.json?ts=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     PRODUCTS = await res.json();
