@@ -1,5 +1,6 @@
 let PRODUCTS = [];
 const $ = (id) => document.getElementById(id);
+let openProductId = null;
 
 function textOf(p) {
   const parts = [
@@ -40,8 +41,7 @@ function hasTypeCategory(categories, type) {
 
 function hasPeriodCategory(categories, period) {
   if (!period) return true;
-  const normalized = categories.map(normalizePeriod);
-  return normalized.includes(period);
+  return categories.map(normalizePeriod).includes(period);
 }
 
 function matchFilters(p, q, type, period) {
@@ -57,39 +57,40 @@ function matchFilters(p, q, type, period) {
 }
 
 function badgeHtml(p) {
-  return getCategories(p).map((c) => {
-    const label = normalizePeriod(c);
-    return `<span class="badge">${label}</span>`;
-  }).join("");
+  return getCategories(p)
+    .map((c) => `<span class="badge">${normalizePeriod(c)}</span>`)
+    .join("");
 }
 
-function row(key, val) {
+function row(label, value) {
   return `
     <tr>
-      <td class="key">${key}</td>
-      <td>${val ?? "-"}</td>
+      <td class="key">${label}</td>
+      <td>${value ?? "-"}</td>
     </tr>
   `;
 }
 
-function detailInlineHtml(p) {
+function detailHtml(p) {
   const bc = Array.isArray(p.bc_mm) && p.bc_mm.length ? p.bc_mm.join(", ") : "-";
   const cats = getCategories(p).map(normalizePeriod).join(", ") || "-";
 
   return `
-    <div class="inline-detail-card">
+    <div class="card-detail-inner">
       <div class="detail-head">
-        <h2>${p.product_name_ko || "-"}</h2>
+        <div>
+          <div style="font-weight:700; font-size:18px;">상세 정보</div>
+        </div>
         <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
           <a href="${p.source_url || "#"}" target="_blank" rel="noreferrer">공식 페이지</a>
-          <button class="btn inline-close-btn" type="button">닫기</button>
         </div>
       </div>
+
       <table class="spec">
         <tbody>
           ${row("제품명(영문)", p.product_name_en)}
-          ${row("기술명/브랜드", p.tech_name)}
           ${row("타입", cats)}
+          ${row("기술명/브랜드", p.tech_name)}
           ${row("재질", p.material)}
           ${row("함수율(%)", p.water_content_percent)}
           ${row("Dk/t", p.dk_t)}
@@ -106,42 +107,6 @@ function detailInlineHtml(p) {
   `;
 }
 
-function removeInlineDetails() {
-  document.querySelectorAll(".inline-detail-row").forEach((el) => el.remove());
-  document.querySelectorAll(".card.open").forEach((el) => el.classList.remove("open"));
-}
-
-function openInlineDetail(cardEl, product) {
-  const grid = $("list");
-  if (!grid || !cardEl || !product) return;
-
-  const alreadyOpen = cardEl.classList.contains("open");
-
-  removeInlineDetails();
-
-  if (alreadyOpen) return;
-
-  cardEl.classList.add("open");
-
-  const detailRow = document.createElement("div");
-  detailRow.className = "inline-detail-row";
-
-  const colCount = window.innerWidth <= 768 ? 1 : 2;
-  detailRow.style.gridColumn = `1 / span ${colCount}`;
-  detailRow.innerHTML = detailInlineHtml(product);
-
-  cardEl.insertAdjacentElement("afterend", detailRow);
-
-  const closeBtn = detailRow.querySelector(".inline-close-btn");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      removeInlineDetails();
-    });
-  }
-
-  detailRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
 function renderList() {
   const q = $("q") ? $("q").value.trim() : "";
   const type = $("type") ? $("type").value : "";
@@ -149,8 +114,6 @@ function renderList() {
 
   const list = $("list");
   if (!list) return;
-
-  removeInlineDetails();
 
   const filtered = PRODUCTS.filter((p) => matchFilters(p, q, type, period));
 
@@ -163,19 +126,40 @@ function renderList() {
     return;
   }
 
-  list.innerHTML = filtered.map((p) => `
-    <div class="card" data-id="${p.id}">
-      <div><b>${p.product_name_ko || "-"}</b></div>
-      <div class="meta">${p.product_name_en || ""}</div>
-      <div class="badges">${badgeHtml(p)}</div>
-    </div>
-  `).join("");
+  list.innerHTML = filtered.map((p) => {
+    const isOpen = Number(openProductId) === Number(p.id);
+
+    return `
+      <div class="card ${isOpen ? "open" : ""}" data-id="${p.id}">
+        <div class="card-summary">
+          <div><b>${p.product_name_ko || "-"}</b></div>
+          <div class="meta">${p.product_name_en || ""}</div>
+          <div class="badges">${badgeHtml(p)}</div>
+        </div>
+        ${isOpen ? `<div class="card-detail">${detailHtml(p)}</div>` : ""}
+      </div>
+    `;
+  }).join("");
 
   document.querySelectorAll(".card").forEach((el) => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (e) => {
+      const clickedLink = e.target.closest("a");
+      if (clickedLink) return;
+
       const id = Number(el.dataset.id);
-      const product = PRODUCTS.find((x) => Number(x.id) === id);
-      openInlineDetail(el, product);
+
+      if (openProductId === id) {
+        openProductId = null;
+      } else {
+        openProductId = id;
+      }
+
+      renderList();
+
+      const activeCard = document.querySelector(`.card[data-id="${id}"]`);
+      if (activeCard) {
+        activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
     });
   });
 }
@@ -203,21 +187,27 @@ async function init() {
   ["q", "type", "period"].forEach((id) => {
     const el = $(id);
     if (!el) return;
-    el.addEventListener("input", renderList);
-    el.addEventListener("change", renderList);
+    el.addEventListener("input", () => {
+      openProductId = null;
+      renderList();
+    });
+    el.addEventListener("change", () => {
+      openProductId = null;
+      renderList();
+    });
   });
 
-  $("btnSearch")?.addEventListener("click", renderList);
+  $("btnSearch")?.addEventListener("click", () => {
+    openProductId = null;
+    renderList();
+  });
 
   $("btnClear")?.addEventListener("click", () => {
     if ($("q")) $("q").value = "";
     if ($("type")) $("type").value = "";
     if ($("period")) $("period").value = "";
+    openProductId = null;
     renderList();
-  });
-
-  window.addEventListener("resize", () => {
-    removeInlineDetails();
   });
 
   renderList();
