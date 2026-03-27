@@ -162,7 +162,6 @@ function renderList() {
       <div><b>${p.product_name_ko || "-"}</b></div>
       <div class="meta">${p.product_name_en || ""}</div>
       <div class="badges">${badgeHtml(p)}</div>
-      <div class="meta">
     </div>
   `).join("");
 
