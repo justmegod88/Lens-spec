@@ -61,6 +61,83 @@ function badgeHtml(p) {
   }).join("");
 }
 
+function row(key, val) {
+  return `
+    <tr>
+      <td class="key">${key}</td>
+      <td>${val ?? "-"}</td>
+    </tr>
+  `;
+}
+
+function detailInlineHtml(p) {
+  const bc = Array.isArray(p.bc_mm) && p.bc_mm.length ? p.bc_mm.join(", ") : "-";
+  const cats = getCategories(p).map(normalizePeriod).join(", ") || "-";
+
+  return `
+    <div class="inline-detail-card">
+      <div class="detail-head">
+        <h2>${p.product_name_ko || "-"}</h2>
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+          <a href="${p.source_url || "#"}" target="_blank" rel="noreferrer">공식 페이지</a>
+          <button class="btn inline-close-btn" type="button">닫기</button>
+        </div>
+      </div>
+      <table class="spec">
+        <tbody>
+          ${row("제품명(영문)", p.product_name_en)}
+          ${row("기술명/브랜드", p.tech_name)}
+          ${row("타입", cats)}
+          ${row("재질", p.material)}
+          ${row("함수율(%)", p.water_content_percent)}
+          ${row("Dk/t", p.dk_t)}
+          ${row("UV 차단", p.uv_block === true ? "Yes" : p.uv_block === false ? "No" : "-")}
+          ${row("BC (mm)", bc)}
+          ${row("DIA (mm)", p.dia_mm)}
+          ${row("도수 범위", p.power_range)}
+          ${row("Cylinder 범위", p.cylinder_range)}
+          ${row("Axis 범위", p.axis_range)}
+          ${row("비고", p.notes)}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function removeInlineDetails() {
+  document.querySelectorAll(".inline-detail-row").forEach(el => el.remove());
+  document.querySelectorAll(".card.open").forEach(el => el.classList.remove("open"));
+}
+
+function openInlineDetail(cardEl, product) {
+  const grid = $("list");
+  if (!grid || !cardEl || !product) return;
+
+  const alreadyOpen = cardEl.classList.contains("open");
+
+  removeInlineDetails();
+
+  if (alreadyOpen) return;
+
+  cardEl.classList.add("open");
+
+  const detailRow = document.createElement("div");
+  detailRow.className = "inline-detail-row";
+
+  const colCount = window.innerWidth <= 768 ? 1 : 2;
+  detailRow.style.gridColumn = `1 / span ${colCount}`;
+  detailRow.innerHTML = detailInlineHtml(product);
+
+  cardEl.insertAdjacentElement("afterend", detailRow);
+
+  const closeBtn = detailRow.querySelector(".inline-close-btn");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      removeInlineDetails();
+    });
+  }
+}
+
 function renderList() {
   const q = $("q") ? $("q").value.trim() : "";
   const type = $("type") ? $("type").value : "";
@@ -98,50 +175,17 @@ function renderList() {
   document.querySelectorAll(".card").forEach(el => {
     el.addEventListener("click", () => {
       const id = Number(el.dataset.id);
-      const p = PRODUCTS.find(x => Number(x.id) === id);
-      showDetail(p);
+      const product = PRODUCTS.find(x => Number(x.id) === id);
+      openInlineDetail(el, product);
     });
   });
-}
-
-function row(key, val) {
-  return `<tr><td class="key">${key}</td><td>${val ?? "-"}</td></tr>`;
-}
-
-function showDetail(p) {
-  if (!p) return;
-
-  $("detail")?.classList.remove("hidden");
-  if ($("d-title")) $("d-title").textContent = p.product_name_ko || "-";
-  if ($("d-link")) $("d-link").href = p.source_url || "#";
-
-  const bc = Array.isArray(p.bc_mm) && p.bc_mm.length ? p.bc_mm.join(", ") : "-";
-  const cats = getCategories(p).map(normalizePeriod).join(", ") || "-";
-
-  if ($("d-table")) {
-    $("d-table").innerHTML =
-      row("제품명(영문)", p.product_name_en) +
-      row("기술명/브랜드", p.tech_name) +
-      row("타입", cats) +
-      row("재질", p.material) +
-      row("함수율(%)", p.water_content_percent) +
-      row("Dk/t", p.dk_t) +
-      row("UV 차단", p.uv_block === true ? "Yes" : p.uv_block === false ? "No" : "-") +
-      row("BC (mm)", bc) +
-      row("DIA (mm)", p.dia_mm) +
-      row("도수 범위", p.power_range) +
-      row("Cylinder 범위", p.cylinder_range) +
-      row("Axis 범위", p.axis_range) +
-      row("비고", p.notes) +
-      row("출처", p.source_url ? `<a href="${p.source_url}" target="_blank" rel="noreferrer">${p.source_url}</a>` : "-");
-  }
 }
 
 async function init() {
   const list = $("list");
 
   try {
-    const res = await fetch("products.json?ts=" + Date.now(), { cache: "no-store" });
+    const res = await fetch("data/products.json?ts=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     PRODUCTS = await res.json();
@@ -171,11 +215,11 @@ async function init() {
     renderList();
   });
 
-  $("d-close")?.addEventListener("click", () => {
-    $("detail")?.classList.add("hidden");
-  });
-
   renderList();
+
+  window.addEventListener("resize", () => {
+    removeInlineDetails();
+  });
 }
 
 init();
