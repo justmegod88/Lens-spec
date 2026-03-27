@@ -26,3 +26,54 @@ select{padding:10px 12px;border:1px solid #d8dbe7;border-radius:10px;background:
 .spec td.key{width:160px;color:#556}
 .count{margin-top:10px;color:#556;font-size:13px}
 .empty{background:#fff;border:1px dashed #d8dbe7;border-radius:14px;padding:14px;color:#556}
+.inline-detail-row {
+  width: 100%;
+  margin-top: -4px;
+  margin-bottom: 18px;
+}
+
+.inline-detail-card {
+  background: #fff;
+  border: 1px solid #dfe5f0;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 35, 95, 0.08);
+}
+
+.card.open {
+  border-color: #4d6bff;
+  box-shadow: 0 8px 24px rgba(77, 107, 255, 0.14);
+}
+
+.inline-detail-card .detail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.inline-detail-card .detail-head h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.inline-close-btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .inline-detail-row {
+    grid-column: 1 / span 1 !important;
+  }
+
+  .inline-detail-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .inline-detail-card .detail-head h2 {
+    font-size: 18px;
+  }
+}
