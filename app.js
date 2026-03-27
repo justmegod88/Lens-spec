@@ -163,12 +163,6 @@ function renderList() {
       <div class="meta">${p.product_name_en || ""}</div>
       <div class="badges">${badgeHtml(p)}</div>
       <div class="meta">
-        BC: ${Array.isArray(p.bc_mm) && p.bc_mm.length ? p.bc_mm.join(", ") : "-"} · DIA: ${p.dia_mm ?? "-"}<br/>
-        재질: ${p.material || "-"} · 함수율: ${p.water_content_percent ?? "-"}%
-      </div>
-      <div class="meta">
-        도수 범위: ${p.power_range || "-"}
-      </div>
     </div>
   `).join("");
 
