@@ -16,7 +16,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-1-day-hydraluxe/"
+    "source_url": ""
   },
   {
     "id": 2,
@@ -35,7 +35,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist/"
+    "source_url": ""
   },
   {
     "id": 3,
@@ -54,7 +54,7 @@
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°~180°(10° 간격), 일부 고실린더 축 제한",
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-1-day-astigmatism/"
+    "source_url": ""
   },
   {
     "id": 4,
@@ -73,7 +73,7 @@
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°,20°,90°,160°,170°,180°, 일부 고실린더 축 제한",
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist-astigmatism/"
+    "source_url": ""
   },
   {
     "id": 5,
@@ -92,7 +92,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-max-1-day/"
+    "source_url": ""
   },
   {
     "id": 6,
@@ -111,7 +111,7 @@
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°~180°(10° 간격), 일부 고실린더 축 제한",
     "notes": "Daily disposable",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-max-1-day-for-astigmatism/"
+    "source_url": ""
   },
   {
     "id": 7,
@@ -130,7 +130,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-max-1-day-multifocal/"
+    "source_url": ""
   },
   {
     "id": 8,
@@ -149,7 +149,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "2-week replacement",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-2-week/"
+    "source_url": ""
   },
   {
     "id": 9,
@@ -168,7 +168,7 @@
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25 / -2.75",
     "axis_range": "축 상세는 공식 페이지 참고",
     "notes": "2-week replacement",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/acuvue-oasys-2-week-astigmatism/"
+    "source_url": ""
   },
   {
     "id": 10,
@@ -187,7 +187,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist-multifocal/"
+    "source_url": ""
   },
   {
     "id": 11,
@@ -206,7 +206,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist-multifocal/"
+    "source_url": ""
   },
   {
     "id": 12,
@@ -225,7 +225,7 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist-multifocal/"
+    "source_url": ""
   },
   {
     "id": 13,
@@ -244,6 +244,6 @@
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
-    "source_url": "https://www.jnjvisionpro.com/en-us/products/1-day-acuvue-moist-multifocal/"
+    "source_url": ""
   }
 ]
