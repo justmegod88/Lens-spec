@@ -15,7 +15,7 @@
     "power_range": "-0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25) / +6.50~+8.00(0.50)",
     "cylinder_range": null,
     "axis_range": null,
-    "notes": "Daily disposable",
+    "notes": "원데이 ",
     "source_url": ""
   },
   {
@@ -34,7 +34,7 @@
     "power_range": "-0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25)",
     "cylinder_range": null,
     "axis_range": null,
-    "notes": "Daily disposable",
+    "notes": "원데이 ",
     "source_url": ""
   },
   {
@@ -53,7 +53,7 @@
     "power_range": "Plano~-6.00(0.25) / -6.50~-9.00(0.50) / +0.25~+4.00(0.25)",
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°~180°(10° 간격), 일부 고실린더 축 제한",
-    "notes": "Daily disposable",
+    "notes": "원데이 ",
     "source_url": ""
   },
   {
@@ -68,11 +68,11 @@
     "dk_t": 31,
     "uv_block": true,
     "bc_mm": [8.5],
-    "dia_mm": 14.5,
+    "dia_mm": 14.2,
     "power_range": "Plano~-6.00(0.25) / -6.50~-9.00(0.50) / 원시 없음",
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°,20°,90°,160°,170°,180°, 일부 고실린더 축 제한",
-    "notes": "Daily disposable",
+    "notes": "원데이",
     "source_url": ""
   },
   {
@@ -84,14 +84,14 @@
     "category": ["원데이", "구면"],
     "material": "senofilcon A",
     "water_content_percent": 38,
-    "dk_t": 129,
+    "dk_t": 121,
     "uv_block": true,
     "bc_mm": [8.5],
     "dia_mm": 14.3,
     "power_range": "-0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25) / +6.50~+8.00(0.50)",
     "cylinder_range": null,
     "axis_range": null,
-    "notes": "Daily disposable",
+    "notes": "원데이 ",
     "source_url": ""
   },
   {
@@ -110,7 +110,7 @@
     "power_range": "Plano~-6.00(0.25) / -6.50~-9.00(0.50) / +0.25~+4.00(0.25)",
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25(일부 축만)",
     "axis_range": "10°~180°(10° 간격), 일부 고실린더 축 제한",
-    "notes": "Daily disposable",
+    "notes": "원데이",
     "source_url": ""
   },
   {
@@ -135,8 +135,8 @@
   {
     "id": 8,
     "manufacturer": "아큐브",
-    "product_name_ko": "아큐브 오아시스 2주착용",
-    "product_name_en": "ACUVUE OASYS 2-Week",
+    "product_name_ko": "아큐브 오아시스® (2주용)",
+    "product_name_en": "ACUVUE OASYS® 2-Week",
     "tech_name": "HYDRACLEAR® PLUS Technology",
     "category": ["2주", "구면"],
     "material": "senofilcon A",
@@ -145,18 +145,18 @@
     "uv_block": true,
     "bc_mm": [8.4, 8.8],
     "dia_mm": 14.0,
-    "power_range": "Plano / -0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25) / +6.50~+8.00(0.50)",
+    "power_range": "-0.50~-6.00(0.25) / -6.50~-12.00(0.50) / +0.50~+6.00(0.25) / +6.50~+8.00(0.50)",
     "cylinder_range": null,
     "axis_range": null,
-    "notes": "2-week replacement",
+    "notes": "2주 착용 ",
     "source_url": ""
   },
   {
     "id": 9,
     "manufacturer": "아큐브",
-    "product_name_ko": "아큐브 오아시스 2주착용 난시용",
-    "product_name_en": "ACUVUE OASYS 2-Week for ASTIGMATISM",
-    "tech_name": "HYDRACLEAR® PLUS / BLINK STABILIZED® DESIGN",
+    "product_name_ko": "아큐브 오아시스® 난시용",
+    "product_name_en": "ACUVUE OASYS® 2-Week for ASTIGMATISM",
+    "tech_name": "HYDRACLEAR® PLUS / ASD™",
     "category": ["2주", "난시"],
     "material": "senofilcon A",
     "water_content_percent": 38,
@@ -167,7 +167,7 @@
     "power_range": "-6.00~+6.00(0.25) / -6.50~-9.00(0.50)",
     "cylinder_range": "-0.75 / -1.25 / -1.75 / -2.25 / -2.75",
     "axis_range": "축 상세는 공식 페이지 참고",
-    "notes": "2-week replacement",
+    "notes": "2주 착용",
     "source_url": ""
   },
   {
@@ -183,7 +183,7 @@
     "uv_block": true,
     "bc_mm": [8.4],
     "dia_mm": 14.3,
-    "power_range": "-9.00~+6.00(0.25)",
+    "power_range": "-9.00~+6.00(0.25),ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
     "cylinder_range": null,
     "axis_range": null,
     "notes": "ADD LOW +0.75~+1.25 / MID +1.50~+1.75 / HIGH +2.00~+2.50",
