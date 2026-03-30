@@ -100,7 +100,7 @@ function detailHtml(p) {
           ${row("도수 범위", p.power_range)}
           ${row("Cylinder 범위", p.cylinder_range)}
           ${row("Axis 범위", p.axis_range)}
-          ${row("비고", p.notes)}
+          ${row("가입도 범위", p.notes)}
         </tbody>
       </table>
     </div>
