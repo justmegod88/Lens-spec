@@ -373,5 +373,6 @@ sup {
     padding: 14px 10px 20px
     border-top: 1px solid #eee;
     margin-top: 40px;
+    line-height: 1.4;
   }
 }
