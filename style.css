@@ -73,6 +73,8 @@ select {
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   background: #fff;
   border: 1px solid #e7e9f2;
   border-radius: 18px;
@@ -92,7 +94,47 @@ select {
 }
 
 .card-summary {
+  position: relative;
   display: block;
+  min-height: 96px;
+  padding-right: 78px;
+}
+
+.card-text {
+  position: relative;
+  z-index: 1;
+}
+
+.product-thumb {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  opacity: 0.98;
+}
+
+.product-thumb img {
+  max-width: 68px;
+  max-height: 68px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.product-thumb.empty-thumb {
+  display: none;
+}
+
+sup {
+  font-size: 0.58em;
+  line-height: 0;
+  vertical-align: super;
 }
 
 .card-summary b {
@@ -267,8 +309,23 @@ select {
     border-radius: 16px;
   }
 
+  .card-summary {
+    min-height: 88px;
+    padding-right: 70px;
+  }
+
   .card-summary b {
     font-size: 17px;
+  }
+
+  .product-thumb {
+    width: 60px;
+    height: 60px;
+  }
+
+  .product-thumb img {
+    max-width: 60px;
+    max-height: 60px;
   }
 
   .badge {
@@ -307,65 +364,5 @@ select {
   .btnPrimary,
   select {
     font-size: 14px;
-  }
-}
-
-
-.reg {
-  font-size: 0.58em;
-  line-height: 0;
-  vertical-align: super;
-  margin-left: 1px;
-}
-
-.card {
-  position: relative;
-  min-height: 150px;
-  padding-right: 92px;
-  overflow: hidden;
-}
-
-.product-thumb {
-  position: absolute;
-  right: 14px;
-  bottom: 12px;
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-.card.open {
-  padding-right: 16px;
-}
-
-.card.open .product-thumb {
-  width: 74px;
-  height: 74px;
-  right: 16px;
-  bottom: 16px;
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding-right: 82px;
-    min-height: 136px;
-  }
-
-  .product-thumb {
-    width: 56px;
-    height: 56px;
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .card.open {
-    padding-right: 14px;
-  }
-
-  .card.open .product-thumb {
-    width: 60px;
-    height: 60px;
   }
 }

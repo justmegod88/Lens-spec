@@ -2,6 +2,16 @@ let PRODUCTS = [];
 const $ = (id) => document.getElementById(id);
 let openProductId = null;
 
+function brandSupHtml(value) {
+  if (value === null || value === undefined || value === "") return "-";
+  return String(value)
+    .replace(/ACUVUE\s*®?/gi, (match) => {
+      const brand = match.toUpperCase().startsWith("ACUVUE") ? "ACUVUE" : match.trim().replace(/®/g, "");
+      return `${brand}<sup>®</sup>`;
+    })
+    .replace(/아큐브\s*®?/g, "아큐브<sup>®</sup>");
+}
+
 function textOf(p) {
   const parts = [
     p.manufacturer || "",
@@ -24,23 +34,6 @@ function normalizePeriod(category) {
   if (category === "먼슬리") return "한달용";
   if (category === "한달용") return "한달용";
   return category;
-}
-
-
-function escapeHtml(value) {
-  return String(value ?? "-")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function brandHtml(value) {
-  const escaped = escapeHtml(value).replace(/®/g, "");
-  return escaped
-    .replace(/ACUVUE/gi, (match) => `${match}<sup class="reg">®</sup>`)
-    .replace(/아큐브/g, `아큐브<sup class="reg">®</sup>`);
 }
 
 function getCategories(p) {
@@ -83,7 +76,7 @@ function row(label, value) {
   return `
     <tr>
       <td class="key">${label}</td>
-      <td>${brandHtml(value)}</td>
+      <td>${brandSupHtml(value)}</td>
     </tr>
   `;
 }
@@ -98,7 +91,6 @@ function detailHtml(p) {
         <div>
           <div style="font-weight:700; font-size:18px;">상세 정보</div>
         </div>
-
       </div>
 
       <table class="spec">
@@ -147,11 +139,15 @@ function renderList() {
     return `
       <div class="card ${isOpen ? "open" : ""}" data-id="${p.id}">
         <div class="card-summary">
-          <div><b>${brandHtml(p.product_name_ko || "-")}</b></div>
-          <div class="meta">${brandHtml(p.product_name_en || "")}</div>
-          <div class="badges">${badgeHtml(p)}</div>
+          <div class="card-text">
+            <div><b>${brandSupHtml(p.product_name_ko)}</b></div>
+            <div class="meta">${brandSupHtml(p.product_name_en || "")}</div>
+            <div class="badges">${badgeHtml(p)}</div>
+          </div>
+          <div class="product-thumb" aria-hidden="true">
+            <img src="images/${p.id}.png" alt="" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('empty-thumb');" />
+          </div>
         </div>
-        <img class="product-thumb" src="${p.id}.png" alt="" loading="lazy" onerror="this.style.display='none'" />
         ${isOpen ? `<div class="card-detail">${detailHtml(p)}</div>` : ""}
       </div>
     `;
