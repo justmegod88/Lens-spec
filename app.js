@@ -145,7 +145,7 @@ function renderList() {
             <div class="badges">${badgeHtml(p)}</div>
           </div>
           <div class="product-thumb" aria-hidden="true">
-            <img src="images/${p.id}.png" alt="" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('empty-thumb');" />
+            <img src="${p.id}.png" alt="" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('empty-thumb');" />
           </div>
         </div>
         ${isOpen ? `<div class="card-detail">${detailHtml(p)}</div>` : ""}
