@@ -368,11 +368,11 @@ sup {
 
   .footer-note{
     text-aling: center;
-    fornt-size: 9px;
+    fornt-size: 6px;
     color: #999;
     padding: 14px 10px 20px
     border-top: 1px solid #eee;
-    margin-top: 40px;
+    margin-top: 10px;
     line-height: 1.4;
   }
 }
