@@ -309,3 +309,63 @@ select {
     font-size: 14px;
   }
 }
+
+
+.reg {
+  font-size: 0.58em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.card {
+  position: relative;
+  min-height: 150px;
+  padding-right: 92px;
+  overflow: hidden;
+}
+
+.product-thumb {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.card.open {
+  padding-right: 16px;
+}
+
+.card.open .product-thumb {
+  width: 74px;
+  height: 74px;
+  right: 16px;
+  bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding-right: 82px;
+    min-height: 136px;
+  }
+
+  .product-thumb {
+    width: 56px;
+    height: 56px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .card.open {
+    padding-right: 14px;
+  }
+
+  .card.open .product-thumb {
+    width: 60px;
+    height: 60px;
+  }
+}

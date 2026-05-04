@@ -26,6 +26,23 @@ function normalizePeriod(category) {
   return category;
 }
 
+
+function escapeHtml(value) {
+  return String(value ?? "-")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function brandHtml(value) {
+  const escaped = escapeHtml(value).replace(/®/g, "");
+  return escaped
+    .replace(/ACUVUE/gi, (match) => `${match}<sup class="reg">®</sup>`)
+    .replace(/아큐브/g, `아큐브<sup class="reg">®</sup>`);
+}
+
 function getCategories(p) {
   return Array.isArray(p.category) ? p.category : [];
 }
@@ -66,7 +83,7 @@ function row(label, value) {
   return `
     <tr>
       <td class="key">${label}</td>
-      <td>${value ?? "-"}</td>
+      <td>${brandHtml(value)}</td>
     </tr>
   `;
 }
@@ -81,9 +98,7 @@ function detailHtml(p) {
         <div>
           <div style="font-weight:700; font-size:18px;">상세 정보</div>
         </div>
-        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-          <a href="${p.source_url || "#"}" target="_blank" rel="noreferrer">공식 페이지</a>
-        </div>
+
       </div>
 
       <table class="spec">
@@ -132,10 +147,11 @@ function renderList() {
     return `
       <div class="card ${isOpen ? "open" : ""}" data-id="${p.id}">
         <div class="card-summary">
-          <div><b>${p.product_name_ko || "-"}</b></div>
-          <div class="meta">${p.product_name_en || ""}</div>
+          <div><b>${brandHtml(p.product_name_ko || "-")}</b></div>
+          <div class="meta">${brandHtml(p.product_name_en || "")}</div>
           <div class="badges">${badgeHtml(p)}</div>
         </div>
+        <img class="product-thumb" src="${p.id}.png" alt="" loading="lazy" onerror="this.style.display='none'" />
         ${isOpen ? `<div class="card-detail">${detailHtml(p)}</div>` : ""}
       </div>
     `;
