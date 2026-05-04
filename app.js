@@ -5,7 +5,12 @@ let openProductId = null;
 function brandSupHtml(value) {
   if (value === null || value === undefined || value === "") return "-";
   return String(value)
-
+    .replace(/ACUVUE\s*®?/gi, (match) => {
+      const brand = match.toUpperCase().startsWith("ACUVUE") ? "ACUVUE" : match.trim().replace(/®/g, "");
+      return `${brand}<sup>®</sup>`;
+    })
+    .replace(/아큐브\s*®?/g, "아큐브<sup>®</sup>");
+}
 
 function textOf(p) {
   const parts = [
