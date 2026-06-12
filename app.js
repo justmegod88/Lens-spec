@@ -20,7 +20,9 @@ function textOf(p) {
     p.power_range || "",
     p.cylinder_range || "",
     p.axis_range || "",
-    p.notes || ""
+    p.notes || "",
+    p.msrp || "",
+    p.center_thickness_mm || ""
   ];
 
   return parts.join(" ").toLowerCase();
@@ -163,7 +165,7 @@ function renderList() {
 
       const id = el.dataset.id;
 
-      if (openProductId === id) {
+      if (String(openProductId) === String(id)) {
         openProductId = null;
       } else {
         openProductId = id;
@@ -171,9 +173,8 @@ function renderList() {
 
       renderList();
 
-      const activeCard = document.querySelector(`.card[data-id="${id}"]`);
-      if (activeCard) {
-        activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     });
   });
