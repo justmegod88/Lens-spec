@@ -12,6 +12,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 121,
+    "center_thickness_mm": 0.085,
     "uv_block": true,
     "bc_mm": [
       8.5
@@ -37,6 +38,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 129,
+    "center_thickness_mm": 0.08,
     "uv_block": true,
     "bc_mm": [
       8.5
@@ -62,6 +64,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 147,
+    "center_thickness_mm": 0.07,
     "uv_block": true,
     "bc_mm": [
       8.4
@@ -113,6 +116,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 121,
+    "center_thickness_mm": 0.085,
     "uv_block": true,
     "bc_mm": [
       8.5,
@@ -139,6 +143,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 129,
+    "center_thickness_mm": 0.08,
     "uv_block": true,
     "bc_mm": [
       8.5
@@ -164,6 +169,7 @@
     "material": "에타필콘 A",
     "water_content_percent": 59,
     "dk_t": 33,
+    "center_thickness_mm": 0.084,
     "uv_block": true,
     "bc_mm": [
       8.5
@@ -189,6 +195,7 @@
     "material": "에타필콘 A",
     "water_content_percent": 59,
     "dk_t": 31,
+    "center_thickness_mm": 0.09,
     "uv_block": true,
     "bc_mm": [
       8.5
@@ -214,6 +221,7 @@
     "material": "에타필콘 A",
     "water_content_percent": 59,
     "dk_t": 33,
+    "center_thickness_mm": 0.084,
     "uv_block": true,
     "bc_mm": [
       8.4
@@ -239,6 +247,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 147,
+    "center_thickness_mm": 0.07,
     "uv_block": true,
     "bc_mm": [
       8.4,
@@ -265,6 +274,7 @@
     "material": "세노필콘 A",
     "water_content_percent": 38,
     "dk_t": 129,
+    "center_thickness_mm": 0.08,
     "uv_block": true,
     "bc_mm": [
       8.6
@@ -290,6 +300,7 @@
     "material": "세노필콘 C",
     "water_content_percent": 41,
     "dk_t": 147,
+    "center_thickness_mm": 0.07,
     "uv_block": true,
     "bc_mm": [
       8.8
@@ -315,6 +326,7 @@
     "material": "세노필콘 C",
     "water_content_percent": 41,
     "dk_t": 129,
+    "center_thickness_mm": 0.08,
     "uv_block": true,
     "bc_mm": [
       8.6
@@ -340,6 +352,7 @@
     "material": "에타필콘 A",
     "water_content_percent": 59,
     "dk_t": 33,
+    "center_thickness_mm": 0.084,
     "uv_block": true,
     "bc_mm": [
       8.5
