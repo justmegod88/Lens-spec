@@ -101,7 +101,7 @@ function detailHtml(p) {
           ${row("재질", p.material)}
           ${row("함수율(%)", p.water_content_percent)}
           ${row("Dk/t", p.dk_t)}
-          ${row("중심두께 (mm)", p.center_thickness_mm)}
+          ${row("중심두께 (@-3.00D)", p.center_thickness_mm)}
           ${row("UV 차단", p.uv_block === true ? "Yes" : p.uv_block === false ? "No" : "-")}
           ${row("BC (mm)", bc)}
           ${row("DIA (mm)", p.dia_mm)}
